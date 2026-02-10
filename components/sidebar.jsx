@@ -26,11 +26,6 @@ export function Sidebar({ onLinkClick }) {
       icon: Globe,
     },
     {
-      name: "CLI Tools",
-      href: "/cli-tools",
-      icon: Terminal,
-    },
-    {
       name: "Curl Converter",
       href: "/curl-converter",
       icon: Repeat,

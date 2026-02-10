@@ -2,6 +2,7 @@
 
 import "./globals.css"
 import { Inter } from "next/font/google"
+import Script from "next/script"
 import { Sidebar } from "@/components/sidebar"
 import { useMobile } from "@/hooks/use-mobile" // useMobileフックをインポート
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet" // Sheetコンポーネントをインポート
@@ -18,6 +19,35 @@ export default function ClientLayout({ children }) {
 
   return (
     <html lang="ja">
+      <head>
+        {/* JSON-LD Structured Data */}
+        <Script
+          id="json-ld-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Domain Tools",
+              "description": "Free online tools for domain analysis including DNS lookup, subdomain discovery, WHOIS information, and more.",
+              "url": "https://domain-tools.h2works.xyz",
+              "applicationCategory": "Utility",
+              "offers": {
+                "@type": "AggregateOffer",
+                "priceCurrency": "JPY",
+                "price": "0",
+                "availability": "https://schema.org/InStock"
+              },
+              "author": {
+                "@type": "Organization",
+                "name": "Domain Tools",
+                "url": "https://domain-tools.h2works.xyz"
+              },
+              "image": "https://domain-tools.h2works.xyz/placeholder-logo.svg"
+            })
+          }}
+        />
+      </head>
       <body className={`${inter.className} flex min-h-screen bg-gray-100 dark:bg-gray-950`}>
         {isMobile ? (
           <Sheet open={isOpen} onOpenChange={setIsOpen}>

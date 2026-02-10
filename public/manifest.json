@@ -1,0 +1,75 @@
+{
+  "name": "Domain Tools",
+  "short_name": "Domain Tools",
+  "description": "Free online tools for domain analysis including DNS lookup, subdomain discovery, WHOIS information, and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/placeholder-logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/placeholder-logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "DNS Lookup",
+      "short_name": "DNS",
+      "description": "Perform DNS lookup",
+      "url": "/dns-lookup",
+      "icons": [{ "src": "/placeholder-logo.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Subdomain Lookup",
+      "short_name": "Subdomains",
+      "description": "Find subdomains",
+      "url": "/subdomain-lookup",
+      "icons": [{ "src": "/placeholder-logo.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "WHOIS",
+      "short_name": "WHOIS",
+      "description": "WHOIS domain info",
+      "url": "/whois",
+      "icons": [{ "src": "/placeholder-logo.svg", "sizes": "192x192" }]
+    }
+  ]
+}
