@@ -21,14 +21,14 @@ export default function DnsLookupPage() {
     setError(null)
 
     if (!domain || typeof domain !== "string") {
-      setError("Invalid domain provided")
+      setError("無効なドメインが提供されました")
       setLoading(false)
       return
     }
 
     const domainRegex = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     if (!domainRegex.test(domain)) {
-      setError("Invalid domain format. Please use a format like example.com")
+      setError("無効なドメイン形式です。example.com のような形式を使用してください")
       setLoading(false)
       return
     }
@@ -69,7 +69,7 @@ export default function DnsLookupPage() {
       })
     } catch (err) {
       console.error("DNS lookup error:", err)
-      setError(err.message || "An unexpected error occurred")
+      setError(err.message || "予期せぬエラーが発生しました")
     } finally {
       setLoading(false)
     }
@@ -78,13 +78,13 @@ export default function DnsLookupPage() {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold">DNS Lookup</CardTitle>
-        <CardDescription>Enter a domain name to view its A, MX, TXT, and CNAME records.</CardDescription>
+        <CardTitle className="text-2xl font-bold">DNSルックアップ</CardTitle>
+        <CardDescription>ドメイン名を入力して、A、MX、TXT、CNAMEレコードを表示します。</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="grid w-full items-center gap-1.5">
-            <Label htmlFor="domain">Domain Name</Label>
+            <Label htmlFor="domain">ドメイン名</Label>
             <Input
               id="domain"
               type="text"
@@ -95,13 +95,13 @@ export default function DnsLookupPage() {
             />
           </div>
           <Button type="submit" disabled={loading}>
-            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Search
+            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}検索
           </Button>
         </form>
 
         {error && (
           <div className="mt-6 rounded-md bg-red-100 p-4 text-red-700 dark:bg-red-900 dark:text-red-200">
-            <p className="font-medium">Error:</p>
+            <p className="font-medium">エラー:</p>
             <p>{error}</p>
           </div>
         )}
@@ -109,12 +109,12 @@ export default function DnsLookupPage() {
         {results && (
           <div className="mt-8 space-y-8">
             <div>
-              <h3 className="mb-4 text-xl font-semibold">A Records</h3>
+              <h3 className="mb-4 text-xl font-semibold">Aレコード</h3>
               {results.aRecords.length > 0 ? (
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>IP Address</TableHead>
+                      <TableHead>IPアドレス</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -126,18 +126,18 @@ export default function DnsLookupPage() {
                   </TableBody>
                 </Table>
               ) : (
-                <p className="text-muted-foreground">No A records found.</p>
+                <p className="text-muted-foreground">Aレコードは見つかりませんでした。</p>
               )}
             </div>
 
             <div>
-              <h3 className="mb-4 text-xl font-semibold">MX Records</h3>
+              <h3 className="mb-4 text-xl font-semibold">MXレコード</h3>
               {results.mxRecords.length > 0 ? (
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Priority</TableHead>
-                      <TableHead>Host</TableHead>
+                      <TableHead>優先度</TableHead>
+                      <TableHead>ホスト</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -150,17 +150,17 @@ export default function DnsLookupPage() {
                   </TableBody>
                 </Table>
               ) : (
-                <p className="text-muted-foreground">No MX records found.</p>
+                <p className="text-muted-foreground">MXレコードは見つかりませんでした。</p>
               )}
             </div>
 
             <div>
-              <h3 className="mb-4 text-xl font-semibold">TXT Records</h3>
+              <h3 className="mb-4 text-xl font-semibold">TXTレコード</h3>
               {results.txtRecords.length > 0 ? (
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Text</TableHead>
+                      <TableHead>テキスト</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -172,17 +172,17 @@ export default function DnsLookupPage() {
                   </TableBody>
                 </Table>
               ) : (
-                <p className="text-muted-foreground">No TXT records found.</p>
+                <p className="text-muted-foreground">TXTレコードは見つかりませんでした。</p>
               )}
             </div>
 
             <div>
-              <h3 className="mb-4 text-xl font-semibold">CNAME Records</h3>
+              <h3 className="mb-4 text-xl font-semibold">CNAMEレコード</h3>
               {results.cnameRecords.length > 0 ? (
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Alias For</TableHead>
+                      <TableHead>エイリアス元</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -194,7 +194,7 @@ export default function DnsLookupPage() {
                   </TableBody>
                 </Table>
               ) : (
-                <p className="text-muted-foreground">No CNAME records found.</p>
+                <p className="text-muted-foreground">CNAMEレコードは見つかりませんでした。</p>
               )}
             </div>
           </div>

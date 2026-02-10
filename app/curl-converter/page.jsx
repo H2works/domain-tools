@@ -45,7 +45,7 @@ export default function CurlConverterPage() {
     if (url) {
       unixCurl += ` '${url}'`
     } else {
-      return "Error: Could not find URL in Windows CMD curl command."
+      return "エラー: Windows CMD curlコマンドにURLが見つかりませんでした。"
     }
 
     if (method !== "GET") {
@@ -96,7 +96,7 @@ export default function CurlConverterPage() {
     if (url) {
       cmdCurl += ` "${url}"` // URL in double quotes
     } else {
-      return "Error: Could not find URL in Unix curl command."
+      return "エラー: Unix curlコマンドにURLが見つかりませんでした。"
     }
 
     if (method !== "GET") {
@@ -139,8 +139,8 @@ export default function CurlConverterPage() {
   return (
     <Card className="w-full max-w-4xl">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold">Curl Command Converter</CardTitle>
-        <CardDescription>Convert curl commands between Windows CMD and Unix/macOS syntax.</CardDescription>
+        <CardTitle className="text-2xl font-bold">cURLコマンド変換ツール</CardTitle>
+        <CardDescription>Windows CMDとUnix/macOS構文間でcURLコマンドを変換します。</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-4">
@@ -149,23 +149,23 @@ export default function CurlConverterPage() {
               variant={conversionType === "winToUnix" ? "default" : "outline"}
               onClick={() => setConversionType("winToUnix")}
             >
-              Windows (CMD) → Unix/macOS
+              Windows (CMD) から Unix/macOS へ
             </Button>
             <Button
               variant={conversionType === "unixToWin" ? "default" : "outline"}
               onClick={() => setConversionType("unixToWin")}
             >
-              Unix/macOS → Windows (CMD)
+              Unix/macOS から Windows (CMD) へ
             </Button>
           </div>
           <div>
-            <Label htmlFor="curl-input">Input Command</Label>
+            <Label htmlFor="curl-input">入力コマンド</Label>
             <Textarea
               id="curl-input"
               placeholder={
                 conversionType === "winToUnix"
-                  ? `e.g., curl -X GET "https://api.example.com/data" -H "Accept: application/json" -H "Authorization: Bearer token"`
-                  : `e.g., curl -X GET 'https://api.example.com/data' -H 'Accept: application/json' -H 'Authorization: Bearer token'`
+                  ? `例: curl -X GET "https://api.example.com/data" -H "Accept: application/json" -H "Authorization: Bearer token"`
+                  : `例: curl -X GET 'https://api.example.com/data' -H 'Accept: application/json' -H 'Authorization: Bearer token'`
               }
               value={curlInput}
               onChange={(e) => setCurlInput(e.target.value)}
@@ -174,7 +174,7 @@ export default function CurlConverterPage() {
             />
           </div>
           <div>
-            <Label htmlFor="curl-output">Converted Command</Label>
+            <Label htmlFor="curl-output">変換されたコマンド</Label>
             <Textarea
               id="curl-output"
               value={curlOutput}

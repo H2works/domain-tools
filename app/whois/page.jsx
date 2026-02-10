@@ -22,7 +22,7 @@ export default function WhoisLookupPage() {
     // ドメイン簡易バリデーション
     const domainRegex = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     if (!domain || !domainRegex.test(domain)) {
-      setError("Invalid domain format. Please use a format like example.com")
+      setError("無効なドメイン形式です。example.com のような形式を使用してください")
       setLoading(false)
       return
     }
@@ -33,20 +33,20 @@ export default function WhoisLookupPage() {
       const response = await fetch(endpoint)
       if (!response.ok) {
         const errorData = await response.json()
-        throw new Error(errorData.error || `HTTP error! status: ${response.status}`)
+        throw new Error(errorData.error || `HTTPエラー! ステータス: ${response.status}`)
       }
       const data = await response.json()
       setResults(data)
     } catch (err) {
       console.error("WHOIS lookup error:", err)
-      setError(err.message || "An unexpected error occurred during WHOIS lookup.")
+      setError(err.message || "WHOISルックアップ中に予期せぬエラーが発生しました。")
     } finally {
       setLoading(false)
     }
   }
 
   const renderWhoisData = (data) => {
-    if (!data.WhoisRecord) return <p>No WHOIS data found.</p>
+    if (!data.WhoisRecord) return <p>WHOISデータが見つかりませんでした。</p>
     const record = data.WhoisRecord
     const rawText = record.registryData?.rawText || record.registryData?.rawtext
     return (
@@ -67,13 +67,13 @@ export default function WhoisLookupPage() {
   return (
     <Card className="w-full max-w-3xl">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold">WHOIS Lookup</CardTitle>
-        <CardDescription>Enter a domain name to retrieve its WHOIS information.</CardDescription>
+        <CardTitle className="text-2xl font-bold">WHOISルックアップ</CardTitle>
+        <CardDescription>WHOIS情報を取得するためにドメイン名を入力してください。</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleLookup} className="flex flex-col gap-4">
           <div className="grid w-full items-center gap-1.5">
-            <Label htmlFor="domain">Domain Name</Label>
+            <Label htmlFor="domain">ドメイン名</Label>
             <Input
               id="domain"
               type="text"
@@ -84,20 +84,20 @@ export default function WhoisLookupPage() {
             />
           </div>
           <Button type="submit" disabled={loading}>
-            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Lookup
+            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}検索
           </Button>
         </form>
 
         {error && (
           <div className="mt-6 rounded-md bg-red-100 p-4 text-red-700 dark:bg-red-900 dark:text-red-200">
-            <p className="font-medium">Error:</p>
+            <p className="font-medium">エラー:</p>
             <p>{error}</p>
           </div>
         )}
 
         {results && (
           <div className="mt-8">
-            <h3 className="mb-4 text-xl font-semibold">WHOIS Results for {domain}</h3>
+            <h3 className="mb-4 text-xl font-semibold">{domain} のWHOIS結果</h3>
             {renderWhoisData(results)}
           </div>
         )}

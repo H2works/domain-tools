@@ -25,7 +25,7 @@ export default function PasswordToolsPage() {
   // Password Strength Checker States
   const [checkedPassword, setCheckedPassword] = useState("")
   const [strengthScore, setStrengthScore] = useState(0)
-  const [strengthText, setStrengthText] = useState("Very Weak")
+  const [strengthText, setStrengthText] = useState("非常に弱い")
   const [strengthColor, setStrengthColor] = useState("red")
 
   const generatePassword = useCallback(() => {
@@ -41,7 +41,7 @@ export default function PasswordToolsPage() {
     if (includeSymbols) characters += symbols
 
     if (characters.length === 0) {
-      setGeneratedPassword("Select at least one character type.")
+      setGeneratedPassword("少なくとも1つの文字タイプを選択してください。")
       return
     }
 
@@ -60,8 +60,8 @@ export default function PasswordToolsPage() {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(generatedPassword)
     toast({
-      title: "Copied!",
-      description: "Password copied to clipboard.",
+      title: "コピーしました！",
+      description: "パスワードがクリップボードにコピーされました。",
     })
   }
 
@@ -109,27 +109,27 @@ export default function PasswordToolsPage() {
     let progressValue = 0
 
     if (score >= 8) {
-      text = "Very Strong"
+      text = "非常に強い"
       color = "green"
       progressValue = 100
     } else if (score >= 6) {
-      text = "Strong"
+      text = "強い"
       color = "lime"
       progressValue = 80
     } else if (score >= 4) {
-      text = "Moderate"
+      text = "中程度"
       color = "yellow"
       progressValue = 60
     } else if (score >= 2) {
-      text = "Weak"
+      text = "弱い"
       color = "orange"
       progressValue = 40
     } else if (password.length > 0) {
-      text = "Very Weak"
+      text = "非常に弱い"
       color = "red"
       progressValue = 20
     } else {
-      text = "Enter a password"
+      text = "パスワードを入力"
       color = "gray"
       progressValue = 0
     }
@@ -156,16 +156,16 @@ export default function PasswordToolsPage() {
   return (
     <Card className="w-full max-w-4xl">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold">Password Tools</CardTitle>
-        <CardDescription>Generate strong passwords and check password strength.</CardDescription>
+        <CardTitle className="text-2xl font-bold">パスワード生成ツール</CardTitle>
+        <CardDescription>強力なパスワードを生成し、パスワードの強度を確認します。</CardDescription>
       </CardHeader>
       <CardContent className="grid gap-8 md:grid-cols-2">
         {/* Password Generator Section */}
         <div className="space-y-6">
-          <h3 className="text-xl font-semibold">Password Generator</h3>
+          <h3 className="text-xl font-semibold">パスワードジェネレーター</h3>
           <div className="grid gap-4">
             <div className="space-y-2">
-              <Label htmlFor="password-length">Length: {length}</Label>
+              <Label htmlFor="password-length">長さ: {length}</Label>
               <Slider
                 id="password-length"
                 min={6}
@@ -178,22 +178,22 @@ export default function PasswordToolsPage() {
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox id="include-uppercase" checked={includeUppercase} onCheckedChange={setIncludeUppercase} />
-              <Label htmlFor="include-uppercase">Include Uppercase (A-Z)</Label>
+              <Label htmlFor="include-uppercase">大文字を含める (A-Z)</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox id="include-lowercase" checked={includeLowercase} onCheckedChange={setIncludeLowercase} />
-              <Label htmlFor="include-lowercase">Include Lowercase (a-z)</Label>
+              <Label htmlFor="include-lowercase">小文字を含める (a-z)</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox id="include-numbers" checked={includeNumbers} onCheckedChange={setIncludeNumbers} />
-              <Label htmlFor="include-numbers">Include Numbers (0-9)</Label>
+              <Label htmlFor="include-numbers">数字を含める (0-9)</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox id="include-symbols" checked={includeSymbols} onCheckedChange={setIncludeSymbols} />
-              <Label htmlFor="include-symbols">Include Symbols (!@#$%)</Label>
+              <Label htmlFor="include-symbols">記号を含める (!@#$%)</Label>
             </div>
             <Button onClick={generatePassword} className="w-full">
-              Generate Password
+              パスワードを生成
             </Button>
             <div className="relative flex items-center">
               <Input
@@ -201,7 +201,7 @@ export default function PasswordToolsPage() {
                 readOnly
                 value={generatedPassword}
                 className="pr-10 font-mono"
-                placeholder="Generated Password"
+                placeholder="生成されたパスワード"
               />
               <Button variant="ghost" size="icon" onClick={copyToClipboard} className="absolute right-1">
                 <Copy className="h-4 w-4" />
@@ -212,21 +212,21 @@ export default function PasswordToolsPage() {
 
         {/* Password Strength Checker Section */}
         <div className="space-y-6">
-          <h3 className="text-xl font-semibold">Password Strength Checker</h3>
+          <h3 className="text-xl font-semibold">パスワード強度チェッカー</h3>
           <div className="grid gap-4">
             <div className="space-y-2">
-              <Label htmlFor="check-password">Enter Password</Label>
+              <Label htmlFor="check-password">パスワードを入力</Label>
               <Input
                 id="check-password"
                 type="text"
                 value={checkedPassword}
                 onChange={(e) => setCheckedPassword(e.target.value)}
-                placeholder="Type your password here"
+                placeholder="ここにパスワードを入力してください"
               />
             </div>
             <div className="space-y-2">
               <Label>
-                Strength:{" "}
+                強度:{" "}
                 <span className={`font-bold ${strengthColorClass[strengthColor]}`}>
                   {strengthText}
                 </span>
@@ -252,12 +252,12 @@ export default function PasswordToolsPage() {
               />
             </div>
             <div className="text-sm text-muted-foreground">
-              <p>Tips for a strong password:</p>
+              <p>強力なパスワードのためのヒント:</p>
               <ul className="list-disc pl-5">
-                <li>Use a mix of uppercase and lowercase letters.</li>
-                <li>Include numbers and symbols.</li>
-                <li>Make it at least 12 characters long.</li>
-                <li>Avoid easily guessable information (e.g., birthdates, names).</li>
+                <li>大文字と小文字を混ぜて使用する。</li>
+                <li>数字と記号を含める。</li>
+                <li>最低12文字の長さにする。</li>
+                <li>推測しやすい情報（例：誕生日、名前）は避ける。</li>
               </ul>
             </div>
           </div>

@@ -21,14 +21,14 @@ export default function SubdomainLookupPage() {
     setError(null)
 
     if (!domain || typeof domain !== "string") {
-      setError("Invalid domain provided")
+      setError("無効なドメインが提供されました")
       setLoading(false)
       return
     }
 
     const domainRegex = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     if (!domainRegex.test(domain)) {
-      setError("Invalid domain format. Please use a format like example.com")
+      setError("無効なドメイン形式です。example.com のような形式を使用してください")
       setLoading(false)
       return
     }
@@ -36,7 +36,7 @@ export default function SubdomainLookupPage() {
     try {
       const crtShResponse = await fetch(`https://crt.sh/?q=%25.${domain}&output=json`)
       if (!crtShResponse.ok) {
-        throw new Error(`Failed to fetch subdomains from crt.sh: ${crtShResponse.statusText}`)
+        throw new Error(`crt.sh からサブドメインのフェッチに失敗しました: ${crtShResponse.statusText}`)
       }
       const crtShData = await crtShResponse.json()
 
@@ -60,7 +60,7 @@ export default function SubdomainLookupPage() {
       setSubdomains(Array.from(uniqueSubdomains).sort())
     } catch (err) {
       console.error("Subdomain lookup error:", err)
-      setError(err.message || "An unexpected error occurred")
+      setError(err.message || "予期せぬエラーが発生しました")
     } finally {
       setLoading(false)
     }
@@ -69,13 +69,13 @@ export default function SubdomainLookupPage() {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold">Subdomain Lookup</CardTitle>
-        <CardDescription>Enter a domain name to find its subdomains via crt.sh.</CardDescription>
+        <CardTitle className="text-2xl font-bold">サブドメイン検索</CardTitle>
+        <CardDescription>ネイキッドドメインをもとに、サブドメインを見つけます。</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="grid w-full items-center gap-1.5">
-            <Label htmlFor="domain">Domain Name</Label>
+            <Label htmlFor="domain">ドメイン名</Label>
             <Input
               id="domain"
               type="text"
@@ -86,28 +86,27 @@ export default function SubdomainLookupPage() {
             />
           </div>
           <Button type="submit" disabled={loading}>
-            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Search
+            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}検索
           </Button>
         </form>
 
         {error && (
           <div className="mt-6 rounded-md bg-red-100 p-4 text-red-700 dark:bg-red-900 dark:text-red-200">
-            <p className="font-medium">Error:</p>
+            <p className="font-medium">エラー:</p>
             <p>{error}</p>
           </div>
         )}
 
         {subdomains && (
           <div className="mt-8">
-            <h3 className="mb-4 text-xl font-semibold">Subdomains (from crt.sh)</h3>
+            <h3 className="mb-4 text-xl font-semibold">サブドメイン (crt.sh より)</h3>
             {subdomains.length > 0 ? (
               <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Subdomain</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
+                                  <TableHeader>
+                                    <TableRow>
+                                      <TableHead>サブドメイン</TableHead>
+                                    </TableRow>
+                                  </TableHeader>                <TableBody>
                   {subdomains.map((sub, index) => (
                     <TableRow key={`sub-${index}`}>
                       <TableCell>{sub}</TableCell>
@@ -116,7 +115,7 @@ export default function SubdomainLookupPage() {
                 </TableBody>
               </Table>
             ) : (
-              <p className="text-muted-foreground">No subdomains found via crt.sh.</p>
+              <p className="text-muted-foreground">crt.sh でサブドメインは見つかりませんでした。</p>
             )}
           </div>
         )}

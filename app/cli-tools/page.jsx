@@ -9,7 +9,7 @@ import { Loader2 } from "lucide-react"
 
 export default function CliToolsPage() {
   const [commandInput, setCommandInput] = useState("")
-  const [outputLines, setOutputLines] = useState(["Welcome to the Web CLI. Type 'help' for available commands."])
+  const [outputLines, setOutputLines] = useState(["Web CLIへようこそ。「help」と入力して利用可能なコマンドを表示してください。"])
   const [history, setHistory] = useState([])
   const [historyIndex, setHistoryIndex] = useState(-1)
   const [loading, setLoading] = useState(false)
@@ -82,7 +82,7 @@ export default function CliToolsPage() {
     try {
       switch (cmd.toLowerCase()) {
         case "help":
-          addOutput("Available commands:")
+          addOutput("利用可能なコマンド:")
           Object.entries(availableCommands[currentTab]).forEach(([key, value]) => {
             addOutput(`  ${key}: ${value}`)
           })
@@ -94,10 +94,10 @@ export default function CliToolsPage() {
         case "history":
         case "doskey": // Windows equivalent
           if (args[0] === "/history") {
-            addOutput("Command History:")
+            addOutput("コマンド履歴:")
             history.forEach((histCmd, idx) => addOutput(`  ${idx + 1} ${histCmd}`))
           } else {
-            addOutput("Command History:")
+            addOutput("コマンド履歴:")
             history.forEach((histCmd, idx) => addOutput(`  ${idx + 1} ${histCmd}`))
           }
           break
@@ -111,20 +111,18 @@ export default function CliToolsPage() {
             addOutput(new Date().toLocaleString())
           }
           break
-        case "time": // Windows specific
-          if (currentTab === "windows" && args[0] === "/t") {
-            addOutput(new Date().toLocaleTimeString())
-          } else {
-            addOutput("Usage: time /t")
-          }
+                  case "time": // Windows specific
+                  if (currentTab === "windows" && args[0] === "/t") {
+                    addOutput(new Date().toLocaleTimeString())
+                  } else {
+                    addOutput("使用法: time /t")          }
           break
-        case "cat":
-        case "type": // Windows equivalent
-          if (args[0] === "README.txt") {
-            addOutput("This is a simulated file content.")
-            addOutput("You can add more predefined files here.")
-          } else {
-            addOutput(`cat: ${args[0]}: No such file or directory (simulated)`)
+                  case "cat":
+                case "type": // Windows equivalent
+                  if (args[0] === "README.txt") {
+                    addOutput("これはシミュレートされたファイルの内容です。")
+                    addOutput("ここにより多くの定義済みファイルを追加できます。")          } else {
+            addOutput(`cat: ${args[0]}: そのようなファイルまたはディレクトリはありません (シミュレート)`)
           }
           break
         case "base64":
@@ -136,10 +134,10 @@ export default function CliToolsPage() {
               try {
                 addOutput(atob(args.slice(1).join(" ")))
               } catch {
-                addOutput("Error: Invalid Base64 string.")
+                addOutput("エラー: 無効なBase64文字列です。")
               }
             } else {
-              addOutput("Usage: base64 [encode|decode] <text>")
+              addOutput("使用法: base64 [encode|decode] <text>")
             }
           } else {
             // Windows certutil simulation
@@ -159,10 +157,10 @@ export default function CliToolsPage() {
                   .replace(/-----(BEGIN|END) CERTIFICATE-----|\n/g, "")
                 addOutput(atob(encoded))
               } catch {
-                addOutput("Error: Invalid Base64 string.")
+                addOutput("エラー: 無効なBase64文字列です。")
               }
             } else {
-              addOutput("Usage: certutil -encode|-decode <text>")
+              addOutput("使用法: certutil -encode|-decode <text>")
             }
           }
           break
@@ -192,22 +190,22 @@ export default function CliToolsPage() {
           }
 
           if (!domainToLookup) {
-            addOutput(`Usage: ${cmd} [-t <type>] <domain> (Linux)`)
-            addOutput(`Usage: ${cmd} [/type=<type>] <domain> (Windows)`)
+            addOutput(`使用法: ${cmd} [-t <type>] <domain> (Linux)`)
+            addOutput(`使用法: ${cmd} [/type=<type>] <domain> (Windows)`)
             break
           }
 
           const typeParam = recordTypeToLookup ? `&type=${recordTypeToLookup}` : ""
           const dnsResponse = await fetch(`https://dns.google/resolve?name=${domainToLookup}${typeParam}`)
           if (!dnsResponse.ok) {
-            throw new Error(`Failed to fetch DNS records: ${dnsResponse.statusText}`)
+            throw new Error(`DNSレコードのフェッチに失敗しました: ${dnsResponse.statusText}`)
           }
           const dnsData = await dnsResponse.json()
 
-          addOutput(`;; QUESTION SECTION:`)
+          addOutput(`;; 質問セクション:`)
           addOutput(`;${domainToLookup}. IN ${recordTypeToLookup || "ANY"}`)
           addOutput(``)
-          addOutput(`;; ANSWER SECTION:`)
+          addOutput(`;; 回答セクション:`)
           if (dnsData.Answer && dnsData.Answer.length > 0) {
             dnsData.Answer.forEach((record) => {
               let recordType = ""
@@ -385,19 +383,19 @@ export default function CliToolsPage() {
   return (
     <Card className="w-full max-w-4xl">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold">Web CLI Tools</CardTitle>
-        <CardDescription>Simulate command-line network tools in your browser.</CardDescription>
+        <CardTitle className="text-2xl font-bold">Web CLI ツール</CardTitle>
+        <CardDescription>ブラウザでコマンドラインネットワークツールをシミュレートします。</CardDescription>
       </CardHeader>
       <CardContent>
         <Tabs value={currentTab} onValueChange={setCurrentTab} className="w-full">
           <TabsList className="grid w-full grid-cols-2">
             {" "}
             {/* 3から2に変更 */}
-            <TabsTrigger value="linux">Linux Commands</TabsTrigger>
-            <TabsTrigger value="windows">Windows Commands</TabsTrigger>
+            <TabsTrigger value="linux">Linuxコマンド</TabsTrigger>
+            <TabsTrigger value="windows">Windowsコマンド</TabsTrigger>
           </TabsList>
           <TabsContent value="linux" className="mt-4">
-            <h4 className="mb-2 text-lg font-semibold">Available Linux Commands:</h4>
+            <h4 className="mb-2 text-lg font-semibold">利用可能なLinuxコマンド:</h4>
             <ul className="mb-4 list-inside list-disc text-sm text-gray-600 dark:text-gray-400">
               {Object.entries(availableCommands.linux).map(([cmd, desc]) => (
                 <li key={cmd}>
@@ -407,7 +405,7 @@ export default function CliToolsPage() {
             </ul>
           </TabsContent>
           <TabsContent value="windows" className="mt-4">
-            <h4 className="mb-2 text-lg font-semibold">Available Windows Commands:</h4>
+            <h4 className="mb-2 text-lg font-semibold">利用可能なWindowsコマンド:</h4>
             <ul className="mb-4 list-inside list-disc text-sm text-gray-600 dark:text-gray-400">
               {Object.entries(availableCommands.windows).map(([cmd, desc]) => (
                 <li key={cmd}>
@@ -432,7 +430,7 @@ export default function CliToolsPage() {
         <form onSubmit={(e) => e.preventDefault()} className="mt-4 flex gap-2">
           <Input
             className="flex-1 bg-gray-700 text-green-400 placeholder:text-gray-500 focus:border-green-500 focus:ring-green-500"
-            placeholder="Type command here..."
+            placeholder="ここにコマンドを入力..."
             value={commandInput}
             onChange={(e) => setCommandInput(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -440,7 +438,7 @@ export default function CliToolsPage() {
             autoFocus
           />
           <Button onClick={() => executeCommand(commandInput)} disabled={loading}>
-            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Execute
+            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}実行
           </Button>
         </form>
       </CardContent>

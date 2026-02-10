@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "CLI Tools",
-  description: "Collection of command-line interface tools for developers and system administrators. Fast and efficient CLI utilities.",
-  keywords: ["CLI tools", "command line tools", "developer tools", "system administration"],
+  title: "CLIツール",
+  description: "開発者およびシステム管理者向けのコマンドラインインターフェースツールのコレクション。高速で効率的なCLIユーティリティ。",
+  keywords: ["CLIツール", "コマンドラインツール", "開発者ツール", "システム管理"],
   openGraph: {
-    title: "CLI Tools | Domain Tools",
-    description: "Complete collection of useful command-line tools for developers.",
+    title: "CLIツール | ドメインツール",
+    description: "開発者向けの便利なコマンドラインツールの完全なコレクション。",
     url: "https://domain-tools.h2works.xyz/cli-tools"
   }
 }

@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "Subdomain Lookup Tool",
-  description: "Free subdomain finder and lookup tool. Discover all subdomains for any domain with advanced search capabilities.",
-  keywords: ["subdomain lookup", "subdomain finder", "subdomain discovery", "DNS enumeration"],
+  title: "サブドメイン検索ツール",
+  description: "無料のサブドメインファインダーおよび検索ツール。高度な検索機能を使用して、任意のドメインのすべてのサブドメインを発見します。",
+  keywords: ["サブドメイン検索", "サブドメインファインダー", "サブドメイン発見", "DNS列挙"],
   openGraph: {
-    title: "Subdomain Lookup Tool | Domain Tools",
-    description: "Free subdomain finder. Discover all subdomains for any domain instantly.",
+    title: "サブドメイン検索ツール | ドメインツール",
+    description: "無料のサブドメインファインダー。任意のドメインのすべてのサブドメインを即座に発見します。",
     url: "https://domain-tools.h2works.xyz/subdomain-lookup"
   }
 }

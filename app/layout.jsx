@@ -4,11 +4,11 @@ import ClientLayout from "./client"
 export const metadata = {
   metadataBase: new URL("https://domain-tools.h2works.xyz"),
   title: {
-    default: "Domain Tools - DNS & Subdomain Lookup",
-    template: "%s | Domain Tools"
+    default: "ドメインツール - DNS & サブドメイン検索",
+    template: "%s | ドメインツール"
   },
-  description: "Free online tools for domain analysis including DNS lookup, subdomain discovery, WHOIS information, and more. Professional domain tools for developers and network administrators.",
-  keywords: ["DNS lookup", "subdomain finder", "WHOIS lookup", "domain tools", "DNS records", "network tools"],
+  description: "DNSルックアップ、サブドメイン発見、WHOIS情報など、ドメイン分析のための無料オンラインツールです。開発者やネットワーク管理者向けのプロフェッショナルなドメインツール。",
+  keywords: ["DNSルックアップ", "サブドメイン検索", "WHOIS検索", "ドメインツール", "DNSレコード", "ネットワークツール"],
   authors: [
     {
       name: "Domain Tools",
@@ -24,8 +24,8 @@ export const metadata = {
     locale: "ja_JP",
     url: "https://domain-tools.h2works.xyz",
     siteName: "Domain Tools",
-    title: "Domain Tools - DNS & Subdomain Lookup",
-    description: "Free online tools for domain analysis including DNS lookup, subdomain discovery, WHOIS information, and more.",
+    title: "ドメインツール - DNS & サブドメイン検索",
+    description: "DNSルックアップ、サブドメイン発見、WHOIS情報など、ドメイン分析のための無料オンラインツール。",
     images: [
       {
         url: "/placeholder-logo.svg",
@@ -39,8 +39,8 @@ export const metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "Domain Tools - DNS & Subdomain Lookup",
-    description: "Free online tools for domain analysis including DNS lookup, subdomain discovery, WHOIS information, and more.",
+    title: "ドメインツール - DNS & サブドメイン検索",
+    description: "DNSルックアップ、サブドメイン発見、WHOIS情報など、ドメイン分析のための無料オンラインツール。",
     images: ["/placeholder-logo.svg"]
   },
   

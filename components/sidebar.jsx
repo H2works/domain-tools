@@ -11,32 +11,32 @@ export function Sidebar({ onLinkClick }) {
 
   const navItems = [
     {
-      name: "Home",
+      name: "ホーム",
       href: "/",
       icon: Home,
     },
     {
-      name: "DNS Lookup",
+      name: "DNSルックアップ",
       href: "/dns-lookup",
       icon: Dns,
     },
     {
-      name: "Subdomain Lookup",
+      name: "サブドメイン検索",
       href: "/subdomain-lookup",
       icon: Globe,
     },
     {
-      name: "Curl Converter",
+      name: "cURL変換",
       href: "/curl-converter",
       icon: Repeat,
     },
     {
-      name: "Password Tools",
+      name: "パスワード生成ツール",
       href: "/password-tools",
       icon: Key,
     },
     {
-      name: "WHOIS Lookup",
+      name: "WHOISルックアップ",
       href: "/whois",
       icon: Info,
     },
@@ -46,7 +46,7 @@ export function Sidebar({ onLinkClick }) {
     <aside className="flex w-64 flex-col border-r bg-white p-4 dark:border-gray-800 dark:bg-gray-900">
       <div className="mb-8 flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-gray-50">
         <Search className="h-6 w-6" />
-        Domain Tools
+        ドメインツール
       </div>
       <nav className="space-y-2">
         {navItems.map((item) => {
