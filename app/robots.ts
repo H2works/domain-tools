@@ -1,5 +1,8 @@
 import { MetadataRoute } from 'next'
 
+// Ensure this route is statically exported for `output: export`
+export const dynamic = 'force-static'
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
