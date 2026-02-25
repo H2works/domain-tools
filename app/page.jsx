@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4 dark:bg-gray-950">
+    <div className="flex h-full items-center justify-center bg-gray-100 p-4 dark:bg-gray-950">
       <Card className="w-full max-w-md text-center">
         <CardHeader>
           <CardTitle className="text-3xl font-bold">ドメインツールへようこそ</CardTitle>

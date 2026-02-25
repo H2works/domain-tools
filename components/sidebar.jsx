@@ -70,6 +70,27 @@ export function Sidebar({ onLinkClick }) {
           )
         })}
       </nav>
+      <div className="mt-auto pt-4 border-t text-xs text-gray-500 dark:text-gray-400">
+        <span>関連サイト</span>
+        <div className="mt-1 flex flex-col space-y-1">
+          <a
+            href="https://news-archive.h2works.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            News Archive
+          </a>
+          <a
+            href="https://template-library.h2works.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            Template Library
+          </a>
+        </div>
+      </div>
     </aside>
   )
 }

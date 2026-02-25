@@ -137,7 +137,7 @@ export default function CurlConverterPage() {
   }, [curlInput, conversionType])
 
   return (
-    <Card className="w-full max-w-4xl">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-2xl font-bold">cURLコマンド変換ツール</CardTitle>
         <CardDescription>Windows CMDとUnix/macOS構文間でcURLコマンドを変換します。</CardDescription>

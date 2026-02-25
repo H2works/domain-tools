@@ -154,7 +154,7 @@ export default function PasswordToolsPage() {
   }
 
   return (
-    <Card className="w-full max-w-4xl">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-2xl font-bold">パスワード生成ツール</CardTitle>
         <CardDescription>強力なパスワードを生成し、パスワードの強度を確認します。</CardDescription>

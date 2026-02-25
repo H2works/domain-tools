@@ -65,7 +65,7 @@ export default function WhoisLookupPage() {
   }
 
   return (
-    <Card className="w-full max-w-3xl">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-2xl font-bold">WHOISルックアップ</CardTitle>
         <CardDescription>WHOIS情報を取得するためにドメイン名を入力してください。</CardDescription>

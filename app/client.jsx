@@ -64,7 +64,7 @@ export default function ClientLayout({ children }) {
         ) : (
           <Sidebar />
         )}
-        <main className="flex-1 p-4 md:p-8">{children}</main>
+        <main className="flex-1 h-full p-4 md:p-8">{children}</main>
         <ToastProvider /> {/* ToastProviderを追加 */}
       </body>
     </html>
