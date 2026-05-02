@@ -1,10 +1,10 @@
 export const metadata = {
   title: "WHOISルックアップツール",
-  description: "無料のWHOISルックアップツール。レジストラ、登録者、有効期限の詳細を含むドメイン登録情報を取得します。",
+  description: "ドメインの登録者、レジストラ、登録日、有効期限、ネームサーバーなどのWHOIS情報を即時に照会できます。ドメイン所有状況の確認や調査、登録情報の検証に便利な無料ツールです。",
   keywords: ["WHOISルックアップ", "ドメイン登録", "ドメイン情報", "レジストラ情報"],
   openGraph: {
     title: "WHOISルックアップツール | ドメインツール",
-    description: "無料のWHOISルックアップ。完全なドメイン登録情報を即座に取得します。",
+    description: "ドメイン登録情報を即時に照会し、所有者や有効期限、ネームサーバーなどの詳細を確認できる無料ツールです。",
     url: "https://domain-tools.h2works.xyz/whois"
   }
 }

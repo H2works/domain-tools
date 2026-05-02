@@ -7,7 +7,7 @@ export const metadata = {
     default: "ドメインツール - DNS & サブドメイン検索",
     template: "%s | ドメインツール"
   },
-  description: "DNSルックアップ、サブドメイン発見、WHOIS情報など、ドメイン分析のための無料オンラインツールです。開発者やネットワーク管理者向けのプロフェッショナルなドメインツール。",
+  description: "ドメイン解析とネットワーク診断をブラウザ上で手軽に実行できる無料オンラインツール集です。DNS照会、サブドメイン検索、WHOIS確認、cURL変換、パスワード生成を一つのページでまとめて利用できます。",
   keywords: ["DNSルックアップ", "サブドメイン検索", "WHOIS検索", "ドメインツール", "DNSレコード", "ネットワークツール"],
   authors: [
     {
@@ -25,7 +25,7 @@ export const metadata = {
     url: "https://domain-tools.h2works.xyz",
     siteName: "Domain Tools",
     title: "ドメインツール - DNS & サブドメイン検索",
-    description: "DNSルックアップ、サブドメイン発見、WHOIS情報など、ドメイン分析のための無料オンラインツール。",
+    description: "ドメイン分析やネットワーク診断をブラウザで手軽に行える無料オンラインツール集。DNS照会、サブドメイン検索、WHOIS確認、cURL変換、パスワード生成をまとめて利用できます。",
     images: [
       {
         url: "/placeholder-logo.svg",
@@ -40,7 +40,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ドメインツール - DNS & サブドメイン検索",
-    description: "DNSルックアップ、サブドメイン発見、WHOIS情報など、ドメイン分析のための無料オンラインツール。",
+    description: "ドメイン分析やネットワーク診断をブラウザで手軽に行える無料オンラインツール集です。DNS照会、サブドメイン検索、WHOIS確認、cURL変換、パスワード生成をまとめて利用できます。",
     images: ["/placeholder-logo.svg"]
   },
   

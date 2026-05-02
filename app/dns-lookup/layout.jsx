@@ -1,10 +1,10 @@
 export const metadata = {
   title: "DNSルックアップツール",
-  description: "無料のDNSルックアップツール。任意のドメインのDNSレコード（A、MX、TXT、CNAME）を照会します。ネットワーク診断のための即時DNS情報を取得します。",
+  description: "任意のドメインのDNSレコードを高速に照会し、A、AAAA、MX、TXT、CNAMEなどのレコードを簡単に確認できます。ネットワーク診断やドメイン解析に最適な無料ツールです。",
   keywords: ["DNSルックアップ", "DNSレコード", "Aレコード", "MXレコード", "TXTレコード", "CNAMEレコード"],
   openGraph: {
     title: "DNSルックアップツール | ドメインツール",
-    description: "無料のDNSルックアップツール。任意のドメインのDNSレコードを即座に照会します。",
+    description: "任意のドメインのDNSレコードを高速に照会し、A/AAAA/MX/TXT/CNAMEなどの詳細を即時に確認できる無料ツールです。",
     url: "https://domain-tools.h2works.xyz/dns-lookup"
   }
 }

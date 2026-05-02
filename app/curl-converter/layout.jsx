@@ -1,10 +1,10 @@
 export const metadata = {
   title: "cURL変換ツール",
-  description: "cURLコマンドをPython、JavaScript、その他の言語のHTTPリクエストに変換します。簡単なcURLコマンド翻訳ツール。",
-  keywords: ["cURL変換", "HTTPリクエスト変換", "APIテスト", "cURLからPython"],
+  description: "Windows CMD と Unix/macOS 形式の cURL コマンドを相互変換して、API リクエストの移植を素早く行える無料ツールです。",
+  keywords: ["cURL変換", "HTTPリクエスト変換", "APIテスト", "cURL変換ツール"],
   openGraph: {
     title: "cURL変換ツール | ドメインツール",
-    description: "cURLコマンドをPython、JavaScript、その他の形式に瞬時に変換します。",
+    description: "Windows CMD と Unix/macOS の cURL コマンド形式を素早く相互変換し、APIテストや開発でのコマンド移植を効率化する無料ツールです。",
     url: "https://domain-tools.h2works.xyz/curl-converter"
   }
 }
